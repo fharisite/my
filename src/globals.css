@@ -1,0 +1,62 @@
+css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors - Brown */
+    --primary: #75420e;
+    --primary-dark: #553b08;
+    --primary-rgb: 117, 66, 14;
+    --primary-dark-rgb: 85, 59, 8;
+    
+    /* Secondary Colors - Cream/Beige */
+    --secondary: #e9e5cd;
+    --secondary-rgb: 233, 229, 205;
+    
+    /* Neutral Colors */
+    --neutral-white: #ffffff;
+    --neutral-gray: #aaaaaa;
+    --neutral-white-rgb: 255, 255, 255;
+    --neutral-gray-rgb: 170, 170, 170;
+    
+    /* Derived colors for UI */
+    --background: var(--neutral-white);
+    --foreground: var(--primary-dark);
+    --muted: var(--neutral-gray);
+    --accent: var(--primary);
+  }
+
+  /* Dark Mode */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --primary: #d4956f;
+      --primary-dark: #b67d5a;
+      --secondary: #2d2a24;
+      --neutral-white: #1a1a1a;
+      --neutral-gray: #666666;
+      --background: #1a1a1a;
+      --foreground: #e5e5e5;
+      --muted: #666666;
+      --accent: #d4956f;
+    }
+  }
+
+  /* Safe Area Support */
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    background: var(--background);
+    color: var(--foreground);
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Disable text selection on UI elements */
+  button, a, [role="button"] {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
